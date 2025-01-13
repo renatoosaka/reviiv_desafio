@@ -18,6 +18,15 @@ const currentGame: Record<string, any> = {};
 const transformStream = new Transform({
   transform(chunk, _, callback) {
     const line = chunk.toString().trim();
+
+    if (line.includes(INITGAME)) {
+      Object.assign(currentGame, {
+        total_kills: 0,
+        players: new Set(),
+        kills: {},
+      });
+    }
+
     this.push(line);
     callback();
   },
