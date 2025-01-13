@@ -27,6 +27,25 @@ const transformStream = new Transform({
       });
     }
 
+    if (line.includes(KILL)) {
+      const actionRegex = /Kill: \d+ \d+ \d+: (.*)/;
+      const [, data] = line.match(actionRegex);
+
+      const playersRegex = /^(.*?) killed (.*?) by/;
+      const [, killer, killed] = data.match(playersRegex);
+
+      currentGame.total_kills += 1;
+
+      if (killer === WORLD) {
+        currentGame.kills[killed] = currentGame.kills[killed] || 0;
+        currentGame.kills[killed] -= 1;
+      }
+      else {
+        currentGame.kills[killer] = currentGame.kills[killer] || 0;
+        currentGame.kills[killer] += 1;
+      }
+    }
+
     this.push(line);
     callback();
   },
