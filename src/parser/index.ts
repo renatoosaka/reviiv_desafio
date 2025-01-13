@@ -33,7 +33,11 @@ const readableStream = Readable.from(
   }),
 );
 
-pipeline(readableStream, transformStream, process.stdout, (err) => {
+const writeableStream = fs.createWriteStream(
+  path.join(__dirname, "games.json"),
+);
+
+pipeline(readableStream, transformStream, writeableStream, (err) => {
   if (err) {
     console.error("Pipeline failed", err);
   }
