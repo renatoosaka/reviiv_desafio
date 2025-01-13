@@ -23,6 +23,9 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+!games.log
 
 # misc
 .DS_Store
+
+games.json
