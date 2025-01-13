@@ -1,6 +1,7 @@
 {
   "name": "desafio",
   "type": "module",
+  "version": "1.0.0",
   "scripts": {
     "dev": "tsx watch src/index.ts",
     "parser": "tsx src/parser/index.ts",
