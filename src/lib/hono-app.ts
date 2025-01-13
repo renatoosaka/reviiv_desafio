@@ -1,3 +1,4 @@
+import { pinoLogger } from "@/middlewares/pino-logger";
 import { OpenAPIHono } from "@hono/zod-openapi";
 
 export function createRouter() {
@@ -7,6 +8,8 @@ export function createRouter() {
 }
 export function createApp() {
   const app = createRouter();
+
+  app.use(pinoLogger());
 
   return app;
 }
