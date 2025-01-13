@@ -16,4 +16,7 @@ export const gameSchema = z.object({
   }),
 });
 
+export const gamesSchema = z.record(z.string(), gameSchema);
+
 export type GameSchemaType = z.infer<typeof gameSchema>;
+export type GamesSchemaType = z.infer<typeof gamesSchema>;
