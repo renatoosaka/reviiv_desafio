@@ -3,6 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/index.ts",
+    "parser": "tsx src/parser/index.ts",
     "lint": "eslint .",
     "lint:fix": "npm run lint --fix"
   },
