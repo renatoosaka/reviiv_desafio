@@ -46,6 +46,13 @@ const transformStream = new Transform({
       }
     }
 
+    if (line.includes(USER)) {
+      const regex = /n\\(.*?)\\t/;
+      const [, player] = line.match(regex);
+
+      currentGame.players.add(player);
+    }
+
     this.push(line);
     callback();
   },
