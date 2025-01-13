@@ -20,6 +20,9 @@ const transformStream = new Transform({
     const line = chunk.toString().trim();
 
     if (line.includes(INITGAME)) {
+      if (!objectIsEmpty(currentGame))
+        wrap();
+
       Object.assign(currentGame, {
         total_kills: 0,
         players: new Set(),
@@ -53,10 +56,36 @@ const transformStream = new Transform({
       currentGame.players.add(player);
     }
 
-    this.push(line);
+    callback();
+  },
+
+  flush(callback) {
+    if (!objectIsEmpty(currentGame))
+      wrap();
+
+    this.push(`${JSON.stringify(games, null, 2)}\n`);
     callback();
   },
 });
+
+function wrap() {
+  games.created_at = new Date().getTime();
+  games.games = games.games || {};
+  games.games[`game_${gamesCount() + 1}`] = {
+    ...currentGame,
+    players: Array.from(currentGame.players),
+  };
+
+  Object.assign(currentGame, {});
+}
+
+function gamesCount() {
+  return Object.keys(games.games || {}).length || 0;
+}
+
+function objectIsEmpty(obj: Record<string, any>) {
+  return Object.keys(obj).length === 0;
+}
 
 if (fs.existsSync(path.join(__dirname, "games.json"))) {
   fs.unlinkSync(path.join(__dirname, "games.json"));
