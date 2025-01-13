@@ -14,6 +14,16 @@ export const list = createRoute({
       content: {
         "application/json": {
           schema: gamesSchema,
+          example: {
+            game_1: {
+              total_kills: 10,
+              players: ["Isgalamido", "Mocinha"],
+              kills: {
+                Isgalamido: -7,
+                Mocinha: 0,
+              },
+            },
+          },
         },
       },
     },
