@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { pipeline, Readable, Transform } from "node:stream";
 import url from "node:url";
+import split from "split2";
 
 const INITGAME = "InitGame:";
 const KILL = "Kill:";
@@ -101,7 +102,7 @@ const writeableStream = fs.createWriteStream(
   path.join(__dirname, "games.json"),
 );
 
-pipeline(readableStream, transformStream, writeableStream, (err) => {
+pipeline(readableStream, split(), transformStream, writeableStream, (err) => {
   if (err) {
     console.error("Pipeline failed", err);
   }
