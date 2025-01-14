@@ -1,6 +1,6 @@
 import type { AppRouteHandler } from "@/lib/types";
 import type { GameSchemaType } from "@/routes/games/games.schema";
-import type { GamesRoute, ListRoute } from "@/routes/players/routes";
+import type { GamesRoute, ListRoute } from "@/routes/players/players.routes";
 
 import { HTTP_STATUS } from "@/lib/constants";
 import data from "@/parser/games.json" with { type: "json" };
