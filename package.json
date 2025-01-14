@@ -7,7 +7,7 @@
     "parser": "tsx src/parser/index.ts",
     "lint": "eslint .",
     "lint:fix": "npm run lint --fix",
-    "test": "cross-env NODE_ENV=test vitest"
+    "test": "cross-env NODE_ENV=test npm run parser && vitest"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",
