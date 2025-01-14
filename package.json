@@ -2,6 +2,9 @@
   "name": "desafio",
   "type": "module",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "start": "node dist/src/index.js",
     "dev": "tsx watch src/index.ts",
