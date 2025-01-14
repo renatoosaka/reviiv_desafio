@@ -7,11 +7,13 @@
   },
   "scripts": {
     "start": "node dist/src/index.js",
+    "predev": "npm run parser",
     "dev": "tsx watch src/index.ts",
     "parser": "tsx src/parser/index.ts",
     "lint": "eslint .",
     "lint:fix": "npm run lint --fix",
     "test": "cross-env NODE_ENV=test npm run parser && vitest",
+    "prebuild": "npm run parser && rimraf ./dist",
     "build": "npm run parser && tsc && tsc-alias"
   },
   "dependencies": {
@@ -24,6 +26,7 @@
     "hono-pino": "^0.7.0",
     "pino": "^9.6.0",
     "pino-pretty": "^13.0.0",
+    "rimraf": "^6.0.1",
     "split2": "^4.2.0"
   },
   "devDependencies": {
