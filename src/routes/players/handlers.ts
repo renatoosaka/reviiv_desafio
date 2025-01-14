@@ -1,5 +1,5 @@
 import type { AppRouteHandler } from "@/lib/types";
-import type { GameSchemaType } from "@/routes/games/schema";
+import type { GameSchemaType } from "@/routes/games/games.schema";
 import type { GamesRoute, ListRoute } from "@/routes/players/routes";
 
 import { HTTP_STATUS } from "@/lib/constants";

@@ -1,7 +1,7 @@
 import { createRoute, z } from "@hono/zod-openapi";
 
 import { HTTP_STATUS } from "@/lib/constants";
-import { gameSchema, gamesSchema } from "@/routes/games/schema";
+import { gameSchema, gamesSchema } from "@/routes/games/games.schema";
 
 export const list = createRoute({
   tags: ["Games"],

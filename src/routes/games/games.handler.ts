@@ -1,9 +1,9 @@
 import type { AppRouteHandler } from "@/lib/types";
-import type { GetOneRoute, ListRoute } from "@/routes/games/routes";
+import type { GetOneRoute, ListRoute } from "@/routes/games/games.routes";
 
 import { HTTP_STATUS } from "@/lib/constants";
 import data from "@/parser/games.json" with { type: "json" };
-import { gameSchema, gamesSchema, type GamesSchemaType } from "@/routes/games/schema";
+import { gameSchema, gamesSchema, type GamesSchemaType } from "@/routes/games/games.schema";
 
 export const list: AppRouteHandler<ListRoute> = (c) => {
   const games = data.games;
