@@ -1,6 +1,6 @@
 ### Reviiv Backend Challenge
 
-![Coverage]: 0%
+[![Coverage Status](https://coveralls.io/repos/github/renatoosaka/reviiv_desafio/badge.svg?branch=main)](https://coveralls.io/github/renatoosaka/reviiv_desafio?branch=main)
 
 #### Instalar dependências
 
