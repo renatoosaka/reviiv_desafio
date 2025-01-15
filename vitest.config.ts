@@ -10,9 +10,4 @@ export default defineConfig({
       provider: "istanbul", // or 'v8'
     },
   },
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
 });
