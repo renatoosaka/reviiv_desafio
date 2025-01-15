@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
     coverage: {
-      reporter: ["text", "lcov", "html"],
-      provider: "istanbul", // or 'v8'
+      reporter: ["json", "lcov", "html", "text", "json-summary", "text-summary"],
+      provider: "istanbul", // or 'v8'01
     },
   },
 });

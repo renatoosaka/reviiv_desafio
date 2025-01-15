@@ -27,8 +27,8 @@ jobs:
 
       - name: Update README with coverage badge
         run: |
-          COVERAGE=$(grep -oP '(?<=All files.*\|\s)\d+%' coverage/lcov-report/index.html)
-          sed -i "s/\\[Coverage\\]: .*/[Coverage]: $COVERAGE/" README.md
+          COVERAGE=$(jq -r '.total.lines.pct' coverage/coverage-summary.json)
+          sed -i "s/\[Coverage\]: .*/[Coverage]: $COVERAGE%/" README.md
 
       - name: Commit README updates
         run: |
