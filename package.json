@@ -13,6 +13,7 @@
     "lint": "eslint .",
     "lint:fix": "npm run lint --fix",
     "test": "cross-env NODE_ENV=test npm run parser && vitest",
+    "test:coverage": "cross-env NODE_ENV=test npm run parser && vitest run --coverage",
     "prebuild": "npm run parser && rimraf ./dist",
     "build": "npm run parser && tsc && tsc-alias"
   },
@@ -33,6 +34,7 @@
     "@antfu/eslint-config": "^3.14.0",
     "@types/node": "^20.11.17",
     "@types/split2": "^4.2.3",
+    "@vitest/coverage-istanbul": "^2.1.8",
     "cross-env": "^7.0.3",
     "eslint": "^9.18.0",
     "eslint-plugin-format": "^1.0.1",
